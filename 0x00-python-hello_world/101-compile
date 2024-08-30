@@ -1,3 +1,6 @@
 #!/bin/bash
+# Compiling the Python script to bytecode
 python3 -m py_compile "$PYFILE"
-mv "${PYFILE}c" "${PYFILE}c"
+# Renaming the output file to match the expected format
+output_file="${PYFILE}c"
+mv __pycache__/"${PYFILE%.py}".cpython-*.pyc "$output_file"
