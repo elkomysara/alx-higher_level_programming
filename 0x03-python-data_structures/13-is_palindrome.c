@@ -1,16 +1,21 @@
 #include <stddef.h>
 #include "lists.h"
 
+/* Forward declarations */
+void reverse_list(listint_t **head);
+int compare_lists(listint_t *head1, listint_t *head2);
+
 /**
 * is_palindrome - checks if a singly linked list is a palindrome
 * @head: double pointer to the head of the linked list
-*
+* 
 * Return: 0 if it is not a palindrome, 1 if it is a palindrome
 */
 int is_palindrome(listint_t **head)
 {
 listint_t *slow = *head, *fast = *head, *prev_slow = NULL, *second_half = NULL, *mid_node = NULL;
 int result = 1;
+
 if (*head != NULL && (*head)->next != NULL)
 {
 while (fast != NULL && fast->next != NULL)
@@ -67,7 +72,7 @@ current = next;
 * compare_lists - compares two linked lists
 * @head1: pointer to the first linked list
 * @head2: pointer to the second linked list
-*
+* 
 * Return: 1 if they are identical, 0 otherwise
 */
 int compare_lists(listint_t *head1, listint_t *head2)
