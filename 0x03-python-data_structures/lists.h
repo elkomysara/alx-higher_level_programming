@@ -1,7 +1,7 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stddef.h>  // For size_t and NULL
+#include <stddef.h>  // Include for size_t and NULL
 
 /**
  * struct listint_s - singly linked list
@@ -22,7 +22,5 @@ listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
-void reverse_list(listint_t **head);  // Forward declaration
-int compare_lists(listint_t *head1, listint_t *head2);  // Forward declaration
 
 #endif /* LISTS_H */
