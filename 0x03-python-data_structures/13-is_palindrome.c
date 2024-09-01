@@ -1,5 +1,9 @@
 #include "lists.h"
-#include <stddef.h> 
+#include <stddef.h>  /* Include for NULL */
+
+/* Function prototypes */
+void reverse_list(listint_t **head);
+int compare_lists(listint_t *head1, listint_t *head2);
 
 int is_palindrome(listint_t **head)
 {
