@@ -35,10 +35,10 @@ Checking invalid type for b:
     ...
     TypeError: b must be an integer
 
-Checking module docstring length:
-    >>> print(__import__('0-add_integer').__doc__) is not None
+Checking module docstring:
+    >>> __import__('0-add_integer').__doc__ is not None
     True
 
-Checking function docstring length:
-    >>> print(__import__('0-add_integer').add_integer.__doc__) is not None
+Checking function docstring:
+    >>> __import__('0-add_integer').add_integer.__doc__ is not None
     True
