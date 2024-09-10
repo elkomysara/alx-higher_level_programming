@@ -2,51 +2,45 @@ The ``2-matrix_divided`` module
 ======================
 
 Using ``matrix_divided``
------------------------
+-------------------
 
 Importing the function from the module:
     >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
 
-Basic division by integer:
+Testing valid inputs:
     >>> matrix = [[4, 8], [16, 32]]
     >>> matrix_divided(matrix, 2)
     [[2.0, 4.0], [8.0, 16.0]]
 
-Division by float:
     >>> matrix = [[9.0, 18.0], [27.0, 36.0]]
     >>> matrix_divided(matrix, 3.0)
     [[3.0, 6.0], [9.0, 12.0]]
 
-Division resulting in rounding:
     >>> matrix = [[1, 2], [3, 4]]
     >>> matrix_divided(matrix, 3)
     [[0.33, 0.67], [1.0, 1.33]]
 
-Empty matrix (error):
+Testing invalid inputs:
     >>> matrix_divided([], 3)
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Division by zero:
     >>> matrix_divided([[1, 2], [3, 4]], 0)
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
 
-Invalid matrix (non-numeric element):
     >>> matrix_divided([[1, 2], ["a", 4]], 2)
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Matrix with uneven row sizes:
     >>> matrix_divided([[1, 2], [3]], 2)
     Traceback (most recent call last):
     ...
     TypeError: Each row of the matrix must have the same size
 
-Invalid divisor (non-numeric):
     >>> matrix_divided([[1, 2], [3, 4]], "a")
     Traceback (most recent call last):
     ...
