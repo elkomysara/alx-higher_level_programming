@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 This is the "5-text_indentation" module.
+
 The module provides one function: text_indentation.
 """
 
@@ -18,15 +19,17 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    new_text = ""
-    i = 0
-    while i < len(text):
-        new_text += text[i]
-        if text[i] in ".:?":
-            new_text += "\n\n"
-            i += 1
-            while i < len(text) and text[i] == " ":
-                i += 1
+    result = ""
+    skip_spaces = False
+
+    for char in text:
+        if skip_spaces and char == " ":
             continue
-        i += 1
-    print(new_text, end="")
+        result += char
+        if char in ".:?":
+            result += "\n\n"
+            skip_spaces = True
+        else:
+            skip_spaces = False
+    
+    print(result.strip(), end="")
