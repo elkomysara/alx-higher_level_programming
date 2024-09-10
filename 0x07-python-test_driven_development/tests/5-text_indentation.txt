@@ -1,0 +1,30 @@
+The ``5-text_indentation`` module
+======================
+
+Using ``text_indentation``
+-------------------
+
+Testing text indentation with example text:
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc: igitur ne illud quidem.")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    Quonam modo?
+
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+
+    Non autem hoc:
+
+    igitur ne illud quidem.
+
+Checking if TypeError is raised for non-string input:
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Checking trailing spaces:
+    >>> text_indentation("This is a test: and it works!")
+    This is a test:
+
+    and it works!
