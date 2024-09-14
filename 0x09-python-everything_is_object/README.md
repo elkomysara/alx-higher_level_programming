@@ -1,4 +1,3 @@
-Here is the revised README file with the correct author name:
 
 ---
 
