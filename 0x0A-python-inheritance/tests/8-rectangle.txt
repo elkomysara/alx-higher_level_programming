@@ -1,0 +1,2 @@
+[AttributeError] 'Rectangle' object has no attribute 'width'
+[TypeError] height must be an integer
