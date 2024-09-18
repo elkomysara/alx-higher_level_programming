@@ -85,3 +85,7 @@ class Rectangle(Base):
         """Prints the Rectangle instance with the character `#`."""
         for _ in range(self.height):
             print("#" * self.width)
+
+    def __str__(self):
+        """Override the __str__ method to return a specific string format."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
