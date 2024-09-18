@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a base class for all other classes in this project."""
 import json
+import os
 
 
 class Base:
@@ -55,3 +56,20 @@ class Base:
             dummy = cls(1)  # Create a dummy Square
         dummy.update(**dictionary)  # Update the dummy instance
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """Return a list of instances from a file.
+
+        Reads from a file named <Class name>.json.
+        Returns:
+            - A list of instances (Rectangle/Square).
+        """
+        filename = cls.__name__ + ".json"
+        if not os.path.exists(filename):
+            return []
+
+        with open(filename, "r", encoding="utf-8") as f:
+            json_data = f.read()
+            list_dicts = cls.from_json_string(json_data)
+            return [cls.create(**d) for d in list_dicts]
