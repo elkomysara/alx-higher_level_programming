@@ -27,20 +27,6 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
-    @staticmethod
-    def from_json_string(json_string):
-        """Return the list of the JSON string representation.
-
-        Args:
-            json_string (str): A string representing a list of dictionaries.
-        
-        Returns:
-            list: A list represented by json_string.
-        """
-        if json_string is None or len(json_string) == 0:
-            return []
-        return json.loads(json_string)
-
     @classmethod
     def save_to_file(cls, list_objs):
         """Write the JSON string representation of list_objs to a file."""
@@ -48,3 +34,24 @@ class Base:
         list_dicts = [obj.to_dictionary() for obj in list_objs] if list_objs else []
         with open(filename, "w", encoding="utf-8") as f:
             f.write(cls.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return the list of the JSON string representation json_string."""
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Return an instance with all attributes set.
+
+        Args:
+            **dictionary (dict): Key/value pairs of attributes.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)  # Create a dummy Rectangle
+        elif cls.__name__ == "Square":
+            dummy = cls(1)  # Create a dummy Square
+        dummy.update(**dictionary)  # Update the dummy instance
+        return dummy
