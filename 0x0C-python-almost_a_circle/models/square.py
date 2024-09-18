@@ -20,6 +20,36 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        """Update attributes of the square instance.
+
+        *args is a list of no-keyword arguments:
+            1st argument: id
+            2nd argument: size
+            3rd argument: x
+            4th argument: y
+        **kwargs allows keyword arguments, only applied if *args is not used.
+        """
+        if args and len(args) > 0:
+            self.id = args[0]
+        if len(args) > 1:
+            self.size = args[1]
+        if len(args) > 2:
+            self.x = args[2]
+        if len(args) > 3:
+            self.y = args[3]
+
+        if not args:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                elif key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
+
     def __str__(self):
         """Override the __str__ method to return [Square] (<id>) <x>/<y> - <size>."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.size)
