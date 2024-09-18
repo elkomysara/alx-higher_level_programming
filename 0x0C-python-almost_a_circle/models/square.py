@@ -16,20 +16,16 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        """Set the size of the square, applying it to both width and height."""
+        """Set the size of the square."""
         self.width = value
         self.height = value
 
-    def update(self, *args, **kwargs):
-        """Update attributes of the square instance.
+    def __str__(self):
+        """Return the string representation of the square."""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
-        *args is a list of no-keyword arguments:
-            1st argument: id
-            2nd argument: size
-            3rd argument: x
-            4th argument: y
-        **kwargs allows keyword arguments, only applied if *args is not used.
-        """
+    def update(self, *args, **kwargs):
+        """Update attributes of the square."""
         if args and len(args) > 0:
             self.id = args[0]
         if len(args) > 1:
@@ -38,18 +34,15 @@ class Square(Rectangle):
             self.x = args[2]
         if len(args) > 3:
             self.y = args[3]
-
         if not args:
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                elif key == "size":
-                    self.size = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value
+                setattr(self, key, value)
 
-    def __str__(self):
-        """Override the __str__ method to return [Square] (<id>) <x>/<y> - <size>."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.size)
+    def to_dictionary(self):
+        """Return the dictionary representation of the square."""
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
