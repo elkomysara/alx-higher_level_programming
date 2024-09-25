@@ -75,6 +75,4 @@ This project is organized into multiple tasks that progressively build your unde
 
 4. Make sure to replace `root` with the correct user and adjust the database names where needed.
 
-## Author
-This project is part of the curriculum for [ALX Software Engineering](https://www.alxafrica.com/software-engineering/).
 
