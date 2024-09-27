@@ -11,9 +11,9 @@ if __name__ == "__main__":
     # Connect database using command-line arguments
     my_database = MySQLdb.connect(
         host='localhost',
-        user=argv[1],
-        password=argv[2],
-        db=argv[3],
+        user='root',
+        password='ss1234567ss',
+        db='hbtn_0d_usa',
         port=3306
     )
     # define cursor used to execute mysql queries
